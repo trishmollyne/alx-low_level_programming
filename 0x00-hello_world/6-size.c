@@ -7,16 +7,10 @@
  * Return: 0 (Success)
  */
 int main(void)
-{
-char e;
-int f;
-long int g;
-long long int h;
-float i;
-printf("Size of char: %lu byte(s)\n", (unsigned long)sizeof(e));
-printf("Size of int: %lu byte(s)\n", (unsigned long)sizeof(f));
-printf("Size of long int: %lu byte(s)\n", (unsigned long)sizeof(g));
-printf("Size of long long int: %lu byte(s)\n", (unsigned long)sizeof(h));
-printf("Size of float: %lu byte(s)\n", (unsigned long)sizeof(i));
+printf("Size of char: %d byte(s)", sizeof(char));
+printf("Size of int: %d byte(s)", sizeof(int));
+printf("Size of long int: %d byte(s)", sizeof(long int));
+printf("Size of long long int: %d byte(s)", sizeof(long long int));
+printf("Size of float: %d byte(s)", sizeof(float));
 return (0);
 }
