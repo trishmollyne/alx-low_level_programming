@@ -1,15 +1,15 @@
 #include <stdio.h>
 /**
- * main - numbers should be printed in ascending order, with three digits
- * Result: Always 0
+ * main - all your code should be in the main function
+ * Return: Always 0
  */
 int main(void)
 {
-		int x, y, z;
+			int x, y, z;
 
 	for (x = 0; x <= 7; x++)
 	{
-		for (y = y + 1; y <= 8; y++)
+		for (y = x + 1; y <= 8; y++)
 		{
 			for (z = y + 1; z <= 9; z++)
 			{
