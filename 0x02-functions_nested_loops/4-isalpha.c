@@ -2,7 +2,7 @@
 
 /**
  * _isalpha - i need to write a function that checks alphabetic character
- * @c: This is the character that needs to be checked 
+ * @c: This is the character that needs to be checked
  * Return: 1 for alphabetic character or 0 for any other thing
  */
 
