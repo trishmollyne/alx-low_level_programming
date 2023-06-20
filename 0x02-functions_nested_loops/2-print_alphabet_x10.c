@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * 2-print_alphabet_x10 - you can only use putchar twice in your code
+ * print_alphabet_x10 - you can only use putchar twice in your code
  * Return: void
  */
 
