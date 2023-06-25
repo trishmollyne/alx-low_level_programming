@@ -1,7 +1,8 @@
-#iinclude "main.h"
+#include "main.h"
+
 /**
- * print_times_table - when n is greater than 15 or less than 0 dont print
- * @n: how many times
+ * print_times_table - print the times table up to a given number
+ * @n: the number up to which the times table should be printed
  */
 void print_times_table(int n)
 {
@@ -33,8 +34,7 @@ _putchar(' ');
 _putchar((y / 10) + '0');
 _putchar((y % 10) + '0');
 }
-else if
-(y >= 100)
+else if (y >= 100)
 {
 _putchar(',');
 _putchar(' ');
