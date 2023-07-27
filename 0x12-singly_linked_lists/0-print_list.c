@@ -1,20 +1,32 @@
+#include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "lists.h"
 
 /**
  * list_len - returns the number of elements in a linked list
  * @h: pointer to the list_t list
  *
- * Return: number of elements in h
+ * Return: number of elements
  */
-size_t list_len(const list_t *h)
-{
-size_t m = 0;
 
-while (h)
+size_t print_list(const list_t *h)
 {
-m++;
-h = h->next;
+const list_t *current = h;
+size_t count = 0;
+while (current != NULL)
+{
+if (current->str != NULL)
+{
+printf("[%zu] %s\n", strlen(current->str), current->str);
 }
-return (m);
+else
+{
+printf("[0] (nil)\n");
+}
+current = current->next;
+count++;
+}
+printf("-> %zu element%s\n", count, count > 1 ? "s" : "");
+return (count);
 }
