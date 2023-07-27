@@ -1,15 +1,13 @@
 #include <stdio.h>
 
-/* Constructor function to print the message */
-void __attribute__((constructor)) print_message()
-{
-printf("You're beat! and yet, you must allow,\n"
-"I bore my house upon my back!\n");
-}
+void first(void) __attribute__ ((constructor));
 
-int main()
+/**
+ * first - prints a sentence before the main
+ * function is executed
+ */
+void first(void)
 {
-/* Your main function code here */
-printf("Hello, world!\n");
-return 0;
+	printf("You're beat! and yet, you must allow,\n");
+	printf("I bore my house upon my back!\n");
 }
