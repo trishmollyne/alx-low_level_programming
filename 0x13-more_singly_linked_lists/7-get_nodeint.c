@@ -19,4 +19,5 @@ return (current);
 current = current->next;
 count++;
 }
+return (temp ? temp : NULL);
 }
