@@ -1,31 +1,29 @@
 #include "lists.h"
 
 /**
- * print_listint_safe - Prints a linked list with loop detection
- * @head: Pointer to the head of the linked list
- * Return: The number of nodes in the list
+ * free_listint_safe - Safely frees a listint_t linked list with possible loops
+ * @h: Double pointer to the head of the linked list
+ * Return: The size of the list that was freed
  */
-
-size_t print_listint_safe(const listint_t *head)
+size_t free_listint_safe(listint_t **h)
 {
-const listint_t *slow = head;
-const listint_t *fast = head;
-size_t node_count = 0;
-while (fast != NULL && fast->next != NULL)
+size_t size = 0;
+listint_t *current = *h;
+listint_t *temp;
+while (current != NULL)
 {
-slow = slow->next;
-fast = fast->next->next;
-if
-(slow == fast) {
-printf("Loop detected. Exiting with status 98.\n");
-exit(98);
+size++;
+if (current < current->next)
+{
+temp = current;
+current = current->next;
+free(temp);
+}
+else
+{
+*h = NULL;
+break;
 }
 }
-while
-(head != NULL) {
-printf("%d\n", head->n);
-head = head->next;
-node_count++;
-}
-return (node_count);
+return (size);
 }
