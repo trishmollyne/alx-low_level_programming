@@ -2,20 +2,19 @@
 
 /**
  * listint_len - A function that returnthe number of elements in linked list
- * @head: Pointer to the head of the linked list
+ * @h: Pointer to the head of the linked list
  *
  * Return: The number of elements in the linked list
  */
 
-size_t listint_len(const listint_t *head)
+size_t listint_len(const listint_t *h)
 {
 size_t elementsnum = 0;
-
-while (head)
+while (h)
 {
-printf("%d\n", head->n);
+printf("%d\n", h->n);
 elementsnum++;
-head = head->next;
+h = h->next;
 }
 return (elementsnum);
 }
