@@ -8,24 +8,27 @@
 
 size_t print_listint_safe(const listint_t *head)
 {
-const listint_t *slow = head;
-const listint_t *fast = head;
-size_t node_count = 0;
-while (fast != NULL && fast->next != NULL)
+const listint_t *slow, *fast;
+size_t count = 0;
+slow = head;
+fast = head;
+while (slow && fast && fast->next)
 {
 slow = slow->next;
 fast = fast->next->next;
-if
-(slow == fast) {
-printf("Loop detected. Exiting with status 98.\n");
+if (slow == fast)
+{
+printf("-> [%p] %d\n", (const void *)slow, slow->data);
 exit(98);
 }
+printf("[%p] %d\n", (const void *)slow, slow->data);
+count++;
 }
-while
-(head != NULL) {
-printf("%d\n", head->n);
-head = head->next;
-node_count++;
+while (slow)
+{
+printf("[%p] %d\n", (const void *)slow, slow->data);
+slow = slow->next;
+count++;
 }
-return (node_count);
+return (count);
 }
