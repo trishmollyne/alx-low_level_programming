@@ -18,15 +18,15 @@ slow = slow->next;
 fast = fast->next->next;
 if (slow == fast)
 {
-printf("-> [%p] %d\n", (const void *)slow, slow->data);
+printf("-> [%p] %d\n", (void *) slow, slow->n);
 exit(98);
 }
-printf("[%p] %d\n", (const void *)slow, slow->data);
+printf("[%p] %d\n", (void *) slow, slow->n);
 count++;
 }
 while (slow)
 {
-printf("[%p] %d\n", (const void *)slow, slow->data);
+printf("[%p] %d\n", (void *) slow, slow->n);
 slow = slow->next;
 count++;
 }
