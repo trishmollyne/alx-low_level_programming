@@ -7,31 +7,15 @@
  */
 unsigned int binary_to_uint(const char *b)
 {
-if (b == NULL)
-{
-return (0);
-}
 unsigned int result = 0;
-while (*b != '\0')
-{
-if (*b != '0' && *b != '1')
-{
+int s;
+if (!b)
 return (0);
-}
-result = result << 1;
-result += (*b - '0');
-b++;
+for (s = 0; b[s]; s++)
+{
+if (b[s] < '0' || b[s] > '1')
+return (0);
+result = 2 * result + (b[s] - '0');
 }
 return (result);
-}
-/*
- * main - Entry point of the program
- * Return: Always 0 (success)
- */
-int main(void)
-{
-const char *binary_str = "110101";
-unsigned int result = binary_to_uint(binary_str);
-assert(result == 53);
-return (0);
 }
