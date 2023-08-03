@@ -1,23 +1,16 @@
 #include "main.h"
-#include <stddef.h>
 
 /**
- * get_endianness - Checks the endianness of the system.
+ * clear_bit - Sets the value of a bit to 0 at a given index.
+ * @n: A pointer to the unsigned long int number to modify.
+ * @index: The index of the bit to set to 0 (starting from 0).
  *
- * Return: 0 if big endian, 1 if little endian.
+ * Return: 1 if it worked, or -1 if an error occurred.
  */
-int get_endianness(void)
+int clear_bit(unsigned long int *n, unsigned int index)
 {
-unsigned int num = 1;
-char *ptr = (char *)&num;
-return (*ptr);
-}
-int main(void)
-{
-int endianness = get_endianness();
-if (endianness)
-write(1, "Little Endian\n", 14);
-else
-write(1, "Big Endian\n", 11);
-return (0);
+if (index >= (sizeof(unsigned long int) * 8))
+return (-1);
+*n = (*n) & ~(1UL << index);
+return (1);
 }
