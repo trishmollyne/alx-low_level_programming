@@ -10,42 +10,26 @@
  */
 ssize_t read_textfile(const char *filename, size_t letters)
 {
-if (filename == NULL)
-{
-return (0);
-}
-int file = open(filename, O_RDONLY);
+char *buffer;
+ssize_t file, written, t;
+file = open(filename, O_RDONLY);
 if (file == -1)
-{
 return (0);
-}
-char *buffer = (char *)malloc(letters);
+buffer = (char *)malloc(sizeof(char) * letters);
 if (buffer == NULL)
 {
 close(file);
 return (0);
 }
-ssize_t bytesRead = read(file, buffer, letters);
-if (bytesRead == -1)
+t = read(file, buffer, letters);
+if (t == -1)
 {
 free(buffer);
 close(file);
 return (0);
 }
-ssize_t totalBytesWritten = 0;
-ssize_t bytesWritten;
-while (totalBytesWritten < bytesRead)
-{
-bytesWritten = _putchar(buffer[totalBytesWritten]);
-if (bytesWritten == -1)
-{
+written = write(STDOUT_FILENO, buffer, t);
 free(buffer);
 close(file);
-return (0);
-}
-totalBytesWritten += bytesWritten;
-}
-free(buffer);
-close(file);
-return (totalBytesWritten);
+return (written);
 }
