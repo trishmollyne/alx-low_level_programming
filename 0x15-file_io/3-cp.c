@@ -35,13 +35,13 @@ ssize_t bytes_read;
 while ((bytes_read = read(fd_from, buffer, BUFFER_SIZE)) > 0)
 {
 ssize_t bytes_written = write(fd_to, buffer, bytes_read);
-if(bytes_written == -1) 
+if(bytes_written == -1)
 {
 dprintf(STDERR_FILENO, "Error: Can't write to %s\n", file_to);
 return (99);
 }
 }
-if(bytes_read == -1) 
+if(bytes_read == -1)
 {
 dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", file_from);
 return (98);
