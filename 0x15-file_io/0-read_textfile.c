@@ -1,5 +1,8 @@
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <stdlib.h>
+#include <fcntl.h>
 #include "main.h"
-
 /**
  * read_textfile - reads a text file and prints it to the POSIX standard output
  * @filename: the name of the file to read
@@ -9,7 +12,7 @@
  *         0 if the file cannot be opened or read, filename is NULL,
  *         or write fails
  */
-ssize_t read_textfile(const char *filename, size_t letters);
+ssize_t read_textfile(const char *filename, size_t letters)
 {
 	int fd;
 ssize_t n_read, n_written;
